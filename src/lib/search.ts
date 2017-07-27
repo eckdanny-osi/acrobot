@@ -11,7 +11,7 @@ const defaults: Fuse.FuseOptions = {
   minMatchCharLength: 3,
   shouldSort: true,
   threshold: 0.3,
-  tokenize: false
+  tokenize: false,
 };
 
 export function makeSearch(
