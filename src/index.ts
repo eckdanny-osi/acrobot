@@ -28,12 +28,11 @@ server.get('/export', function(req, res) {
 const store = new Store();
 store.loadEntries(err => {
   if (err) console.error(err);
-  server.listen(3000, function() {
+  server.listen(process.env.PORT || 3000, function() {
     console.log(
-      '%s is now accepting searches against %s entries at %s',
+      '%s is now accepting searches against %s entries',
       server.name,
-      store.length,
-      server.url
+      store.length
     );
   });
 });
