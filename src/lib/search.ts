@@ -1,5 +1,5 @@
 import * as Fuse from 'fuse.js';
-import { IRecord } from './types';
+import { IRecord } from '../types';
 
 const defaults: Fuse.FuseOptions = {
   caseSensitive: false,
@@ -11,14 +11,18 @@ const defaults: Fuse.FuseOptions = {
   minMatchCharLength: 3,
   shouldSort: true,
   threshold: 0.3,
-  tokenize: false,
+  tokenize: false
 };
 
 export function makeSearch(list: Array<object>, opts: Fuse.FuseOptions = {}) {
-  const fuse = new Fuse(list, {...defaults, ...opts});
+  const fuse = new Fuse(list, { ...defaults, ...opts });
   return query => fuse.search(query);
 }
 
-export function search(query: string, list: Array<object>, opts: Fuse.FuseOptions = {}) {
+export function search(
+  query: string,
+  list: Array<object>,
+  opts: Fuse.FuseOptions = {}
+) {
   return makeSearch(list, opts)(query);
 }

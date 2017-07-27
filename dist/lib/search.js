@@ -11,7 +11,7 @@ const defaults = {
     minMatchCharLength: 3,
     shouldSort: true,
     threshold: 0.3,
-    tokenize: false,
+    tokenize: false
 };
 function makeSearch(list, opts = {}) {
     const fuse = new Fuse(list, Object.assign({}, defaults, opts));
