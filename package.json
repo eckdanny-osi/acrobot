@@ -1,6 +1,6 @@
 {
   "name": "acrobot",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "slack chatbot for acronym lookups",
   "main": "dist/index",
   "typings": "dist/index",
