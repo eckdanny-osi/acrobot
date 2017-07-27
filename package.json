@@ -7,14 +7,10 @@
   "scripts": {
     "build": "tsc -p .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prettier": "prettier --single-quote"
+    "prettier": "prettier --single-quote",
+    "start": "node dist/index.js"
   },
-  "keywords": [
-    "chatbot",
-    "slack",
-    "acronym",
-    "acrobot"
-  ],
+  "keywords": ["chatbot", "slack", "acronym", "acrobot"],
   "author": "Danny Eck <eck.danny@gmail.com>",
   "license": "ISC",
   "dependencies": {
