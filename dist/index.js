@@ -12,7 +12,11 @@ server.get('/', (req, res, next) => {
     return next();
 });
 server.post('/', function (req, res, next) {
-    res.json(search_1.makeSearch(store.getAll())(req.params.s));
+    const { text, token } = req.body;
+    if (token !== process.env.SLACK_TOKEN) {
+        next('INVALID TOKEN!');
+    }
+    res.json(search_1.makeSearch(store.getAll())(text));
     return next();
 });
 server.post('/getAll', (req, res, next) => {
