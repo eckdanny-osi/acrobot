@@ -14,7 +14,11 @@ server.get('/', (req, res, next) => {
 });
 
 server.post('/', function(req, res, next) {
-  res.json(makeSearch(store.getAll())(req.params.s));
+  const { text, token } = req.body;
+  if (token !== process.env.SLACK_TOKEN) {
+    next('INVALID TOKEN!');
+  }
+  res.json(makeSearch(store.getAll())(text));
   return next();
 });
 
