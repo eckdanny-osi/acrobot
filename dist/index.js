@@ -7,6 +7,10 @@ const formatter_1 = require("./lib/formatter");
 const server = restify.createServer();
 server.use(restify.plugins.bodyParser());
 server.name = process.env.SERVER_NAME || 'Acrobot';
+server.get('/', (req, res, next) => {
+    res.json({ message: 'hello world' });
+    return next();
+});
 server.post('/', function (req, res, next) {
     res.json(search_1.makeSearch(store.getAll())(req.params.s));
     return next();
@@ -25,8 +29,8 @@ const store = new store_1.Store();
 store.loadEntries(err => {
     if (err)
         console.error(err);
-    server.listen(3000, function () {
-        console.log('%s is now accepting searches against %s entries at %s', server.name, store.length, server.url);
+    server.listen(process.env.PORT || 3000, function () {
+        console.log('%s is now accepting searches against %s entries', server.name, store.length);
     });
 });
 // if (!process.env.token) {

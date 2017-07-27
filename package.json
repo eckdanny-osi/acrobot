@@ -7,6 +7,8 @@
   "scripts": {
     "build": "tsc -p .",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc -p .",
+    "tsc:watch": "tsc -p . -w",
     "prettier": "prettier --single-quote",
     "start": "node dist/index.js"
   },
@@ -20,7 +22,6 @@
     "lodash.sortby": "^4.7.0",
     "request": "^2.81.0",
     "restify": "^5.0.1",
-    "tsc": "^1.20150623.0",
     "typescript": "^2.4.2",
     "fuse.js": "^3.0.5"
   },
@@ -28,6 +29,7 @@
     "@types/csvtojson": "^1.1.4",
     "@types/lodash": "^4.14.71",
     "@types/restify": "^5.0.1",
-    "prettier": "^1.5.3"
+    "prettier": "^1.5.3",
+    "tsc": "^1.20150623.0"
   }
 }
