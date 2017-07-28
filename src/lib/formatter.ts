@@ -5,13 +5,18 @@ import { IRecord } from '../types';
 export function formatCSV(items: Array<object>): string {
   return json2csv({
     data: _.sortBy(items, ['key']),
-    fields: ['key', 'value']
+    fields: ['key', 'value'],
   });
 }
 
-function notFound() {}
+function notFound() {
+  return {
+    text: 'No results! :tired_face:',
+  };
+}
 
 export function formatResults(results: IRecord[]) {
+  console.log(results);
   switch (results.length) {
     case 0:
       return notFound();
@@ -28,10 +33,12 @@ export function formatResults(results: IRecord[]) {
     // }
     default:
       return {
-        attachments: results.map(result => ({
-          title: result.key,
-          text: result.value
-        }))
+        attachments: results.map(result => {
+          return {
+            title: result.key,
+            text: result.value,
+          };
+        }),
       };
   }
 }
