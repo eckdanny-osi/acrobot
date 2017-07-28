@@ -14,7 +14,10 @@ const defaults: Fuse.FuseOptions = {
   tokenize: false
 };
 
-export function makeSearch(list: Array<object>, opts: Fuse.FuseOptions = {}) {
+export function makeSearch(
+  list: Array<object>,
+  opts: Fuse.FuseOptions = {}
+): (string) => IRecord[] {
   const fuse = new Fuse(list, { ...defaults, ...opts });
   return query => fuse.search(query);
 }

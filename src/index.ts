@@ -2,7 +2,7 @@ import * as path from 'path';
 import * as restify from 'restify';
 import { Store } from './lib/store';
 import { makeSearch } from './lib/search';
-import { formatCSV } from './lib/formatter';
+import { formatCSV, formatResults } from './lib/formatter';
 
 const server = restify.createServer();
 server.use(restify.plugins.bodyParser());
@@ -13,7 +13,8 @@ server.post('/', function(req, res, next) {
   if (token !== process.env.SLACK_TOKEN) {
     next('INVALID TOKEN!');
   }
-  res.json(makeSearch(store.getAll())(text));
+  const results = makeSearch(store.getAll())(text);
+  res.json(formatResults(results));
   return next();
 });
 
