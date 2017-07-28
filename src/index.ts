@@ -8,10 +8,11 @@ const server = restify.createServer();
 server.use(restify.plugins.bodyParser());
 server.name = process.env.SERVER_NAME || 'Acrobot';
 
-server.get('/', (req, res, next) => {
-  res.json({ message: 'hello world' });
-  return next();
-});
+// Heroku workaround actually needed?
+// server.get('/', (req, res, next) => {
+//   res.json({ message: 'hello world' });
+//   return next();
+// });
 
 server.post('/', function(req, res, next) {
   const { text, token } = req.body;
