@@ -71,3 +71,5 @@ or
 Note: how to tackel storage?
 
 BotKit offers some storage mechanisms.... but heroku does not allow node apps access to the filesystem. There's always something else.... but do NOT make managing consistency b/n the master on github and noSQL or in-memmory options
+
+Hello WOrld
